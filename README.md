@@ -8,7 +8,7 @@ Once you have created a desktop and launched the RAMPS app, you will need to run
 Make sure to replace the necessary paths.
 
 ```
-python3 $HOME/nextcloud/app_data/ramps/RAMP.py </Path_to/Pre-OP-Scan.nii.gz> </Path_to/Post-OP-Scan.nii.gz> </Path_to_Output_Folder_file_path/> <Output_Prefix> <Hemisphere> <Lobe>
+ramps </Path_to/Pre-OP-Scan.nii.gz> </Path_to/Post-OP-Scan.nii.gz> </Path_to_Output_Folder_file_path/> <Output_Prefix> <Hemisphere> <Lobe>
 ```
 
 ## Acknowledgement

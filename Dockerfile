@@ -38,6 +38,7 @@ RUN wget -O ramps.zip https://github.com/cnnp-lab/RAMPS/archive/refs/heads/main.
     mv /tmp/SynthSeg-master/* RAMPS/Place_SynthSeg_here/SynthSeg && \
     rm ramps.zip && rm synthseg.zip && \
     pip install -r requirements.txt && \
+    echo "alias ramps='python3 /apps/${APP_NAME}/RAMPS/RAMP.py'" > /etc/profile.d/ramps_alias.sh && \
     echo "export FREESURFER_HOME=/usr/local/freesurfer" > /etc/profile.d/freesurfer_home.sh
 
 RUN apt-get remove -y --purge wget unzip python3-dev build-essential python3-pip && \
