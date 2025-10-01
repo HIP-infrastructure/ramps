@@ -28,16 +28,16 @@ RUN apt-get update && \
 
 COPY ./apps/${APP_NAME}/requirements.txt requirements.txt
 
-RUN wget -O ramps.zip https://github.com/cnnp-lab/RAMPS/archive/refs/heads/main.zip && \
-    unzip ramps.zip -d /tmp && \
+RUN wget -nv -O ramps.zip https://github.com/cnnp-lab/RAMPS/archive/refs/heads/main.zip && \
+    unzip -qq ramps.zip -d /tmp && \
     mkdir RAMPS &&  \
     mv /tmp/RAMPS-main/* RAMPS/ && \
-    wget -O synthseg.zip https://github.com/BBillot/SynthSeg/archive/refs/heads/master.zip && \
-    unzip synthseg.zip -d /tmp && \
+    wget -nv -O synthseg.zip https://github.com/BBillot/SynthSeg/archive/refs/heads/master.zip && \
+    unzip -qq synthseg.zip -d /tmp && \
     mkdir -p RAMPS/Place_SynthSeg_here/SynthSeg && \
     mv /tmp/SynthSeg-master/* RAMPS/Place_SynthSeg_here/SynthSeg && \
     rm ramps.zip && rm synthseg.zip && \
-    pip install -r requirements.txt && \
+    pip install -q -r requirements.txt && \
     echo "alias ramps='python3 /apps/${APP_NAME}/RAMPS/RAMP.py'" > /etc/profile.d/ramps_alias.sh && \
     echo "export FREESURFER_HOME=/usr/local/freesurfer" > /etc/profile.d/freesurfer_home.sh
 
